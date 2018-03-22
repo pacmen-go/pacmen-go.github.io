@@ -17,6 +17,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-icons/communication-icons.html">
 <link rel="import" href="../bower_components/geo-location/geo-location.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="elements/business-locations.html">
 <link rel="import" href="elements/maps-feature.html">
 
@@ -92,7 +93,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                             image="[[marker.image]]">
                         <!--<paper-card>-->
                         <div class="card-content">
-                            <div class="cafe-header">[[marker.shoptitle]]
+                            <div class="cafe-header">[[marker.shopTitle]]
                                 <div class="cafe-location cafe-light">
                                     <iron-icon icon="communication:location-on"></iron-icon>
                                     <span>[[_distanceToShop(marker.latitude,marker.longitude)]]</span>
@@ -122,7 +123,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <template is="dom-if" if="[[dealSelected]]">
 
-            <div class="close" style="z-index:99;" on-click="goBack"><paper-icon-button icon="arrow-back"></paper-icon-button></div>
+            <div class="close" style="z-index:99;" on-click="goBack"><iron-icon icon="icons:arrow-back"></iron-icon></div>
             <maps-feature start-address="[[startAddress]]" end-address="[[endAddress]]"
                           show-direction="true"></maps-feature>
         </template>
