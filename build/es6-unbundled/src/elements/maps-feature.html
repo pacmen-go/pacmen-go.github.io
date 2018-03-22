@@ -9,14 +9,14 @@
 
 </head><body><dom-module id="maps-feature">
     <template>
-        <style>.map{width:100%;height:100%;}google-map{margin:0;height:88vh;}</style>
+        <style>.map{width:100%;height:100%;}google-map{margin:0;height:88vh;}paper-toast{--paper-toast-background-color:#ff6200;}</style>
 
         <div class="map">
             <google-map-directions map="{{map}}" api-key="AIzaSyDaGvdEig57JDplmrPiGsFv9saI9vO959g" start-address="{{startAddress}}" end-address="{{endAddress}}" travel-mode="WALKING"></google-map-directions>
 
             <google-map map="{{map}}" latitude="51.221810" longitude="4.500395" api-key="AIzaSyDaGvdEig57JDplmrPiGsFv9saI9vO959g">
 
-                <google-map-marker latitude="{{latitude}}" longitude="{{longitude}}" title="ING Club" draggable="true" animation="DROP"></google-map-marker>
+                <google-map-marker latitude="{{latitude}}" longitude="{{longitude}}" title="ING Deals" draggable="true" animation="DROP"></google-map-marker>
                 <template is="dom-if" if="[[markers]]">
                     <template is="dom-repeat" items="{{markers}}" as="marker">
                         <google-map-marker latitude="{{marker.latitude}}" longitude="{{marker.longitude}}" title="{{marker.shopTitle}}" click-events="true">
@@ -30,8 +30,9 @@
             </google-map>
 
             <geo-location latitude="{{latitude}}" longitude="{{longitude}}"></geo-location>
-            <paper-toast text="Cool deals spotted nearby! " id="toast" duration="5000" paper-toast-background-color="#f00">
-                <a href="#">Check it out!</a>
+            <paper-toast <!--text="Cool deals spotted nearby!" --="">id="toast"
+                         duration="5000"&gt;
+                <a href="#">Cool deals spotted nearby! Check it out!</a>
 
             </paper-toast>
 

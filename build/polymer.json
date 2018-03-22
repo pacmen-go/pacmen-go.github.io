@@ -1,24 +1,24 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/my-app.html",
+  "shell": "src\\my-app.html",
   "fragments": [
-    "src/my-view1.html",
-    "src/my-view2.html",
-    "src/my-view404.html"
+    "src\\my-view1.html",
+    "src\\my-view2.html",
+    "src\\my-view404.html"
   ],
   "sources": [
-    "images/**/*",
-    "src/**/*",
+    "images\\**\\*",
+    "src\\**\\*",
     "index.html",
-    "src/my-app.html",
-    "src/my-view1.html",
-    "src/my-view2.html",
-    "src/my-view404.html"
+    "src\\my-app.html",
+    "src\\my-view1.html",
+    "src\\my-view2.html",
+    "src\\my-view404.html"
   ],
   "extraDependencies": [
-    "bower_components/webcomponentsjs/*.js",
-    "bower_components/webcomponentsjs/*.js",
-    "!bower_components/webcomponentsjs/gulpfile.js",
+    "bower_components\\webcomponentsjs\\*.js",
+    "bower_components\\webcomponentsjs\\*.js",
+    "!bower_components\\webcomponentsjs\\gulpfile.js",
     "manifest.json"
   ],
   "builds": [
