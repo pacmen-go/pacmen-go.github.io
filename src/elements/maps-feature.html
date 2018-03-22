@@ -24,7 +24,7 @@
                 --paper-toast-background-color: #ff6200;
             }
 
-            paper-toast a {
+            paper-toast div a {
                 color: white;
                 text-decoration: none;
             }
@@ -50,7 +50,7 @@
                                 latitude="{{marker.latitude}}"
                                 longitude="{{marker.longitude}}"
                                 title="{{marker.shopTitle}}" click-events="true">
-                            <div>
+                            <div style="max-width: 350px">
                                 <h1>[[marker.shopTitle]]</h1>
                                 <h2>[[marker.deal.label]]</h2>
                                 <p>[[marker.formattedAddress]]</p>
