@@ -1,0 +1,209 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+--><html><head><link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-icons/communication-icons.html">
+<link rel="import" href="../bower_components/geo-location/geo-location.html">
+<link rel="import" href="elements/business-locations.html">
+<link rel="import" href="elements/maps-feature.html">
+
+<link rel="import" href="shared-styles.html">
+
+<script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaGvdEig57JDplmrPiGsFv9saI9vO959g">
+</script>
+
+
+</head><body><dom-module id="my-view2">
+    <template>
+        <style include="shared-styles">:host{display:flex;flex-direction:column;}paper-card{margin:25px;max-width:100%;}.card-content{height:100px;}.cafe-header{@apply --paper-font-headline;}.cafe-light{color:var(--paper-grey-600);}.cafe-location{float:right;font-size:15px;vertical-align:middle;}.cafe-reserve{color:var(--google-blue-500);}iron-icon.star{--iron-icon-width:16px;--iron-icon-height:16px;color:var(--paper-amber-500);}iron-icon.star:last-of-type{color:var(--paper-grey-500);}.close{position:absolute;top:100px;float:right;}</style>
+
+        <template is="dom-if" if="[[!dealSelected]]">
+            <div class="card" flex="column">
+                <h1>View all the local deals!</h1>
+            </div>
+
+            <div class="horizontal">
+                <business-locations on-get-markers="getMarkers"></business-locations>
+
+                <template is="dom-repeat" items="[[markers]]" as="marker">
+                    <paper-card image="[[marker.image]]">
+                        <!--<paper-card>-->
+                        <div class="card-content">
+                            <div class="cafe-header">[[marker.shoptitle]]
+                                <div class="cafe-location cafe-light">
+                                    <iron-icon icon="communication:location-on"></iron-icon>
+                                    <span>[[_distanceToShop(marker.latitude,marker.longitude)]]</span>
+                                </div>
+                            </div>
+                            <div class="cafe-rating">
+                                <iron-icon class="star" icon="star"></iron-icon>
+                                <iron-icon class="star" icon="star"></iron-icon>
+                                <iron-icon class="star" icon="star"></iron-icon>
+                                <iron-icon class="star" icon="star"></iron-icon>
+                                <iron-icon class="star" icon="star"></iron-icon>
+                            </div>
+                            <div class="card-content">
+                                <p>[[marker.deal.label]]</p>
+                                <p class="cafe-light">[[marker.formatted_address]]</p>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <div class="horizontal justified">
+                                <paper-button on-tap="selectDeal">Get Direction</paper-button>
+                            </div>
+                        </div>
+                    </paper-card>
+                </template>
+            </div>
+        </template>
+
+        <template is="dom-if" if="[[dealSelected]]">
+
+            <div class="close" style="z-index:99;" on-click="goBack"><paper-icon-button icon="arrow-back"></paper-icon-button></div>
+            <maps-feature start-address="[[startAddress]]" end-address="[[endAddress]]" show-direction="true"></maps-feature>
+        </template>
+    </template>
+
+    <script>var MyView2 = function (_Polymer$Element) {
+    babelHelpers.inherits(MyView2, _Polymer$Element);
+
+    function MyView2() {
+        babelHelpers.classCallCheck(this, MyView2);
+        return babelHelpers.possibleConstructorReturn(this, (MyView2.__proto__ || Object.getPrototypeOf(MyView2)).apply(this, arguments));
+    }
+
+    babelHelpers.createClass(MyView2, [{
+        key: 'selectDeal',
+        value: function selectDeal(e) {
+            var deal = e.model.marker;
+
+            var destination = this.getLocationName(deal.latitude, deal.longitude);
+
+            this.set('dealSelected', true);
+        }
+    }, {
+        key: 'getLocationName',
+        value: function getLocationName(lat, lon) {
+            var origin = this.latitude + "," + this.longitude;
+            var destination = lat + "," + lon;
+            var service = new google.maps.DistanceMatrixService();
+            var des = null;
+
+            getDist();
+
+            function getDist() {
+                service.getDistanceMatrix({
+                    origins: [origin],
+                    destinations: [destination],
+                    travelMode: 'WALKING',
+                    unitSystem: google.maps.UnitSystem.METRIC
+                }, function (response, status) {
+                    if (status !== 'OK') {
+                        alert('Error was: ' + status);
+                    } else {
+                        //                            console.log(response.destinationAddresses[0]);
+                        des = response.destinationAddresses[0];
+                    }
+                });
+            }
+
+            return des;
+        }
+    }, {
+        key: '_distanceToShop',
+        value: function _distanceToShop(lat, lon) {
+            var origin = this.latitude + "," + this.longitude;
+            var destination = lat + "," + lon;
+
+            var service = new google.maps.DistanceMatrixService();
+
+            function getDist() {
+                var dist;
+                service.getDistanceMatrix({
+                    origins: [origin],
+                    destinations: [destination],
+                    travelMode: 'WALKING',
+                    unitSystem: google.maps.UnitSystem.METRIC
+                }, function (response, status) {
+                    if (status !== 'OK') {
+                        alert('Error was: ' + status);
+                    } else {
+                        var distance = response.rows[0].elements[0].distance;
+                        if (distance.value < 1000) {
+                            dist = distance.value + " m";
+                        } else {
+                            dist = distance.text;
+                        }
+                    }
+                });
+            }
+            return Math.floor(Math.random() * 999) + " m";
+        }
+    }, {
+        key: 'getMarkers',
+        value: function getMarkers(event) {
+            this.markers = event.detail.markers;
+        }
+    }, {
+        key: 'goBack',
+        value: function goBack(event) {
+            this.dealSelected = false;
+        }
+    }], [{
+        key: 'is',
+        get: function get() {
+            return 'my-view2';
+        }
+    }, {
+        key: 'properties',
+        get: function get() {
+            return {
+                latitude: {
+                    type: Number,
+                    notify: true,
+                    value: 51.221810
+
+                },
+                longitude: {
+                    type: Number,
+                    notify: true,
+                    value: 4.500395
+                },
+                startAddress: {
+                    type: String,
+                    value: 'Turnhoutsebaan 5'
+                },
+                endAddress: {
+                    type: String,
+                    value: 'Dorenboslaan'
+                },
+                markers: {
+                    type: Object,
+                    notify: true
+                },
+
+                dealSelected: {
+                    type: Boolean,
+                    value: false
+                }
+
+            };
+        }
+    }]);
+    return MyView2;
+}(Polymer.Element);
+
+window.customElements.define(MyView2.is, MyView2);</script>
+</dom-module>
+</body></html>

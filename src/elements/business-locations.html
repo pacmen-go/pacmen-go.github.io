@@ -1,0 +1,30 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="business-locations">
+    <template>
+        <iron-ajax
+                auto
+                url="data/markers.json"
+                handle-as="json"
+                on-response="handleResponse"
+                method="GET"
+        ></iron-ajax>
+    </template>
+    <script>
+        class BusinessLocations extends Polymer.Element {
+            static get is() {
+                return 'business-locations';
+            }
+            static get properties() {
+                return {
+                    markers: Object,
+                }
+            }
+            handleResponse(event) {
+                this.dispatchEvent(new CustomEvent('get-markers',{bubbles: true, composed: true, detail: {markers: event.detail.response.markers}}));
+            }
+        }
+        window.customElements.define(BusinessLocations.is, BusinessLocations);
+    </script>
+</dom-module>

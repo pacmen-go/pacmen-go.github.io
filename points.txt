@@ -1,0 +1,58 @@
+[
+              {
+                label: 'shop 1',
+                latitude: 51.222297,
+                longitude: 4.501967,
+              },
+              {
+                label: 'shop 2',
+                latitude: 51.221629,
+                longitude: 4.500814,
+              },
+              {
+                label: 'shop 3',
+                latitude: 51.222168,
+                longitude: 4.500980,
+              },
+              {
+                label: 'shop 4',
+                latitude: 51.222023,
+                longitude: 4.502584,
+              },
+              {
+                label: 'Coffee Deal!',
+                latitude: 51.222418,
+                longitude: 4.500551,
+                shoptitle: 'Fresh Java',
+                formatted_address: 'Wagenstraat 21 Amsterdam',
+                image: '../images/coffee.jpeg'
+
+              },
+              {
+                label: 'Fresh Java',
+                latitude: 51.221810,
+                longitude: 4.500398,
+                formatted_address: 'Wagenstraat 1 Amsterdam',
+                image: '../images/java.jpg'
+              },
+              {
+                label: 'mall 3',
+                latitude: 51.222665,
+                longitude: 4.501364,
+              },
+              {
+                label: 'shop 5',
+                latitude: 52.3909611,
+                longitude: 4.9433656,
+              },
+              {
+                label: 'shop 6',
+                latitude: 51.222660,
+                longitude: 4.501731,
+              },
+              {
+                label: 'shop 7',
+                latitude: 51.222969,
+                longitude: 4.502182,
+              }
+            ]

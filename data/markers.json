@@ -1,0 +1,106 @@
+{
+  "markers": [
+    {
+      "deal": {
+        "category": "barber",
+        "label": "Men's haircut with free beard trimming"
+      },
+      "latitude": 51.222297,
+      "longitude": 4.501967,
+      "shopTitle": "Barber Bob",
+      "formattedAddress": "Wagenstraat 21 Antwerpen",
+      "image": "../images/barber01.png"
+    },
+
+    {
+      "deal": {
+        "category": "lunchroom",
+        "label": "Order coffee between 10 and 12 and get a free sausage roll "
+      },
+      "latitude": 52.3909611,
+      "longitude": 4.9433656,
+      "shopTitle": "Jacky's Lunch",
+      "formattedAddress": "Wagenstraat 21 Antwerpen",
+      "image": "../images/lunchroom03.png"
+    },
+    {
+      "deal": {
+        "category": "barber",
+        "label": "10% discount on a haircut"
+      },
+      "latitude": 51.221629,
+      "longitude": 4.500814,
+      "shopTitle": "Him & Her",
+      "formattedAddress": "Wagenstraat 21 Antwerpen",
+      "image": "../images/barber03.png"
+    },
+    {
+      "deal": {
+        "category": "candyshop",
+        "label": "Free ice cream aged 12 to 18 years"
+      },
+      "latitude": 51.222023,
+      "longitude": 4.502584,
+      "shopTitle": "Jamin",
+      "formattedAddress": "Wagenstraat 21 Antwerpen",
+      "image": "../images/candyshop01.png"
+    },
+    {
+      "deal": {
+        "category": "candyshop",
+        "label": "Free truffle cream tryoutbox"
+      },
+      "latitude": 51.222418,
+      "longitude": 4.500551,
+      "shopTitle": "Eva's Sweet Shop",
+      "formattedAddress": "Wagenstraat 21 Antwerpen",
+      "image": "../images/candyshop02.png"
+    },
+    {
+      "deal": {
+        "category": "barber",
+        "label": "Bring a friend! Second's haircut is for free"
+      },
+      "latitude": 51.222969,
+      "longitude": 4.502182,
+      "shopTitle": "New Look",
+      "formattedAddress": "Wagenstraat 21 Antwerpen",
+      "image": "../images/barber02.png"
+    },
+    {
+      "deal": {
+        "category": "lunchroom",
+        "label": "Order a large coffee and get a piece of cheesecake for free"
+      },
+      "latitude": 51.222665,
+      "longitude": 4.501364,
+      "shopTitle": "Lunchroom Figaro",
+      "formattedAddress": "Wagenstraat 21 Antwerpen",
+      "image": "../images/lunchroom01.png"
+    },
+    {
+      "deal": {
+        "category": "lunchroom",
+        "label": "50% discount on your second coffee"
+      },
+      "latitude": 51.222660,
+      "longitude": 4.501731,
+      "shopTitle": "Happy Earth",
+      "formattedAddress": "Wagenstraat 21 Antwerpen",
+      "image": "../images/lunchroom02.png"
+    },
+    {
+      "deal": {
+        "category": "candyshop",
+        "label": "50% discount on scoop candy"
+      },
+      "latitude": 51.221810,
+      "longitude": 4.500398,
+      "shopTitle": "Sweets to Go",
+      "formattedAddress": "Wagenstraat 1 Amsterdam",
+      "image": "../images/candyshop03.png"
+    }
+  ]
+}
+
+

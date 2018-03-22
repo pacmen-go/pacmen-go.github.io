@@ -1,0 +1,69 @@
+{
+  "name": "geo-location",
+  "version": "2.0.2",
+  "description": "Geolocation API Polymer web component",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "device",
+    "geolocation",
+    "geo",
+    "location",
+    "position",
+    "navigation",
+    "coordinates",
+    "latitude",
+    "longitude",
+    "gps",
+    "map"
+  ],
+  "homepage": "https://webcomponents.org/element/ebidel/geo-location",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ebidel/geo-location.git"
+  },
+  "authors": [
+    "Eric Bidelman <ebidel@gmail.com>"
+  ],
+  "license": "Apache-2.0",
+  "main": [
+    "geo-location.html"
+  ],
+  "ignore": [
+    "/.*"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#1.9 - 2"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#1 - 2",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#1 - 2",
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
+    "google-map": "GoogleWebComponents/google-map#1 - 2"
+  },
+  "variants": {
+    "1.x": {
+      "dependencies": {
+        "polymer": "Polymer/polymer#^1.9.0"
+      },
+      "devDependencies": {
+        "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+        "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+        "web-component-tester": "Polymer/web-component-tester#^4.0.0",
+        "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
+        "google-map": "GoogleWebComponents/google-map#^1.0.0"
+      }
+    }
+  },
+  "_release": "2.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.0.2",
+    "commit": "2799e3348414f538131d22bb89e03280a1e9d3bc"
+  },
+  "_source": "https://github.com/ebidel/geo-location.git",
+  "_target": "^2.0.2",
+  "_originalSource": "ebidel/geo-location",
+  "_direct": true
+}
