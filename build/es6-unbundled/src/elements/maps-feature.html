@@ -9,7 +9,7 @@
 
 </head><body><dom-module id="maps-feature">
     <template>
-        <style>.map{width:100%;height:100%;}google-map{margin:0;height:88vh;}paper-toast{--paper-toast-background-color:#ff6200;}paper-toast div a{color:white;text-decoration:none;}google-map-marker div{max-width:300px;}</style>
+        <style>.map{width:100%;height:100%;}google-map{margin:0;height:88vh;}paper-toast{--paper-toast-background-color:#ff6200;}google-map-marker div{max-width:300px;}</style>
 
         <div class="map">
             <google-map-directions map="{{map}}" api-key="AIzaSyDaGvdEig57JDplmrPiGsFv9saI9vO959g" start-address="{{startAddress}}" end-address="{{endAddress}}" travel-mode="WALKING"></google-map-directions>
@@ -32,8 +32,7 @@
             </google-map>
 
             <geo-location latitude="{{latitude}}" longitude="{{longitude}}"></geo-location>
-            <paper-toast id="toast" duration="5000">
-                <a href="#">Cool deals spotted nearby! Check it out!</a>
+            <paper-toast id="toast" duration="5000" text="Cool deals spotted nearby! Check it out!">
 
             </paper-toast>
 
