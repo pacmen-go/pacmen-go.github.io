@@ -23,12 +23,6 @@
             paper-toast {
                 --paper-toast-background-color: #ff6200;
             }
-
-            paper-toast div a {
-                color: white;
-                text-decoration: none;
-            }
-
             google-map-marker div {
                 max-width: 300px;
             }
@@ -67,8 +61,7 @@
 
             <geo-location latitude="{{latitude}}" longitude="{{longitude}}"></geo-location>
             <paper-toast id="toast"
-                         duration="5000">
-                <a href="#">Cool deals spotted nearby! Check it out!</a>
+                         duration="5000" text="Cool deals spotted nearby! Check it out!">
 
             </paper-toast>
 
